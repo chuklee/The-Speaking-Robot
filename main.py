@@ -1,7 +1,8 @@
 from chat import *
-
+from save_conversation import *
 if __name__ == '__main__':
     initialize_openai()
-    conversation = "Me: Hello, how are you? You: Fine and you."
-    request = "How old are you?"
-    print(response(conversation, request))
+    conversation = load_conversation()
+    request = "What is my name?"
+    answer = response(conversation, request)
+    add_new_response(answer, "bot")
